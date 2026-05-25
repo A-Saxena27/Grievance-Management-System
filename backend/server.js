@@ -13,10 +13,7 @@ connectDB();
 // Allow requests from your specific Vercel URL
 app.use(
   cors({
-    origin:
-      "https://grievance-management-system-py309yl32-anushree-saxenas-projects.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
+    origin: "*",
   }),
 );
 app.use(express.json());
