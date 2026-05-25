@@ -13,9 +13,12 @@ connectDB();
 // Allow requests from your specific Vercel URL
 app.use(
   cors({
-    origin: "*",
+    origin:
+      "https://grievance-management-system-81yn91duj-anushree-saxenas-projects.vercel.app",
+    credentials: true,
   }),
 );
+
 app.use(express.json());
 
 const authRoutes = require("./routes/authRoutes");
