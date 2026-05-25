@@ -9,7 +9,17 @@ dotenv.config();
 const app = express();
 
 connectDB();
-app.use(cors());
+const cors = require("cors");
+
+// Allow requests from your specific Vercel URL
+app.use(
+  cors({
+    origin:
+      "https://grievance-management-system-py309yl32-anushree-saxenas-projects.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }),
+);
 app.use(express.json());
 
 const authRoutes = require("./routes/authRoutes");
