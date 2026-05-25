@@ -36,7 +36,10 @@ export default function ContactSection() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="relative">
-                <User className="absolute left-3 top-3 text-gray-400" size={18} />
+                <User
+                  className="absolute left-3 top-3 text-gray-400"
+                  size={18}
+                />
                 <Input
                   name="name"
                   placeholder="Your Name"
@@ -48,7 +51,10 @@ export default function ContactSection() {
               </div>
 
               <div className="relative">
-                <Mail className="absolute left-3 top-3 text-gray-400" size={18} />
+                <Mail
+                  className="absolute left-3 top-3 text-gray-400"
+                  size={18}
+                />
                 <Input
                   name="email"
                   type="email"
@@ -61,7 +67,10 @@ export default function ContactSection() {
               </div>
 
               <div className="relative">
-                <MessageSquare className="absolute left-3 top-3 text-gray-400" size={18} />
+                <MessageSquare
+                  className="absolute left-3 top-3 text-gray-400"
+                  size={18}
+                />
                 <Textarea
                   name="message"
                   placeholder="Your Message"
@@ -82,5 +91,3 @@ export default function ContactSection() {
     </section>
   );
 }
-
-export default ContactSection;
