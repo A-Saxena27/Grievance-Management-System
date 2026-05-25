@@ -13,9 +13,15 @@ connectDB();
 // Allow requests from your specific Vercel URL
 app.use(
   cors({
-    origin:
-      "https://grievance-management-system-81yn91duj-anushree-saxenas-projects.vercel.app",
-      "https://grievance-management-system-gkbzh737v-anushree-saxenas-projects.vercel.app",
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+
+      if (origin.includes("vercel.app")) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
+    },
     credentials: true,
   }),
 );
