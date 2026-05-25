@@ -9,7 +9,6 @@ dotenv.config();
 const app = express();
 
 connectDB();
-const cors = require("cors");
 
 // Allow requests from your specific Vercel URL
 app.use(
