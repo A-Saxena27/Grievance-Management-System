@@ -12,7 +12,7 @@ const {
   assignComplaint,
   getComplaintStats,
   getCategoryStats,
-} = require("../controllers/ComplaintContoller");
+} = require("../controllers/complaintController");
 
 const { protect } = require("../middleware/authMiddleware");
 
