@@ -18,7 +18,6 @@ const createComplaint = async (req, res) => {
       studentId: req.user.id,
 
       attachments: attachmentPaths,
-      s,
     });
 
     if (!title || !description || !category || !level) {
