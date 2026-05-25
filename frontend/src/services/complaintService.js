@@ -1,14 +1,5 @@
 import API from "./api";
 
-const formData = new FormData();
-formData.append("title", title);
-formData.append("description", description);
-formData.append("category", category);
-
-files.forEach((file) => {
-  formData.append("attachments", file);
-});
-
 export const createComplaint = async (formData) => {
   const token = localStorage.getItem("token");
 
@@ -17,6 +8,7 @@ export const createComplaint = async (formData) => {
       Authorization: `Bearer ${token}`,
     },
   });
+
   return response.data;
 };
 
