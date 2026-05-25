@@ -5,6 +5,7 @@ const createComplaint = async (req, res) => {
   try {
     const { title, description, category, subcategory, level, priority } =
       req.body;
+    const attachmentPaths = req.files ? req.files.map((file) => file.path) : [];
 
     const complaint = await Complaint.create({
       title,
@@ -15,7 +16,12 @@ const createComplaint = async (req, res) => {
       priority,
 
       studentId: req.user.id,
+
+      attachments: attachmentPaths,
     });
+
+    console.log("BODY:", req.body);
+    console.log("USER:", req.user);
 
     if (!title || !description || !category || !level) {
       return res.status(400).json({
