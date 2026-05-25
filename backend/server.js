@@ -15,6 +15,7 @@ app.use(
   cors({
     origin:
       "https://grievance-management-system-81yn91duj-anushree-saxenas-projects.vercel.app",
+      "https://grievance-management-system-gkbzh737v-anushree-saxenas-projects.vercel.app",
     credentials: true,
   }),
 );
