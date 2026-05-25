@@ -4,6 +4,7 @@ import { updateComplaintStatus } from "../services/complaintService";
 import { addComment } from "../services/complaintService";
 import toast from "react-hot-toast";
 import Navbar from "../components/Navbar";
+import ContactSection from "../components/ContactSection";
 
 function CommitteeDashboard() {
   const [complaints, setComplaints] = useState([]);
@@ -108,6 +109,7 @@ function CommitteeDashboard() {
             >
               Add Comment
             </button>
+            <ContactSection />
           </div>
         ))}
       </div>

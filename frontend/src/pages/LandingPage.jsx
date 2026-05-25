@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ContactSection from "../components/ContactSection";
 
 function LandingPage() {
   return (
@@ -129,6 +130,7 @@ function LandingPage() {
             grievances efficiently.
           </p>
         </div>
+        <ContactSection />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
-
+import ContactSection from "../components/ContactSection";
 function StudentDashboard() {
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -63,6 +63,7 @@ function StudentDashboard() {
           </div>
         </div>
       </div>
+      <ContactSection />
     </div>
   );
 }

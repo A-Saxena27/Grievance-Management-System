@@ -3,6 +3,7 @@ import { createComplaint } from "../services/complaintService";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import Navbar from "../components/Navbar";
+import ContactSection from "../components/ContactSection";
 
 function CreateComplaint() {
   const navigate = useNavigate();
@@ -205,6 +206,7 @@ function CreateComplaint() {
             </button>
           </form>
         </div>
+        <ContactSection />
       </div>
     </>
   );

@@ -6,7 +6,7 @@ import {
 } from "../services/complaintService";
 
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
-
+import ContactSection from "../components/ContactSection";
 import Navbar from "../components/Navbar";
 import toast from "react-hot-toast";
 
@@ -221,102 +221,105 @@ function AdminComplaints() {
           {/* Complaint Cards */}
           <div id="Complaints" className="space-y-6">
             {filteredComplaints.map((complaint) => (
-              <div
-                key={complaint._id}
-                className="
-                  bg-white
-                  p-6
-                  rounded-2xl
-                  shadow-md
-                  border
-                  border-gray-100
-                  transition-all
-                  duration-300
-                  hover:bg-gradient-to-r
-                  hover:from-blue-100
-                  hover:to-purple-50
-                  hover:shadow-2xl
-                  hover:-translate-y-1
-                "
-              >
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h2 className="text-2xl font-bold text-gray-800">
-                      {complaint.title}
-                    </h2>
+              <>
+                <div
+                  key={complaint._id}
+                  className="
+                    bg-white
+                    p-6
+                    rounded-2xl
+                    shadow-md
+                    border
+                    border-gray-100
+                    transition-all
+                    duration-300
+                    hover:bg-gradient-to-r
+                    hover:from-blue-100
+                    hover:to-purple-50
+                    hover:shadow-2xl
+                    hover:-translate-y-1
+                  "
+                >
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h2 className="text-2xl font-bold text-gray-800">
+                        {complaint.title}
+                      </h2>
 
-                    <p className="text-gray-600 mt-2">
-                      {complaint.description}
-                    </p>
+                      <p className="text-gray-600 mt-2">
+                        {complaint.description}
+                      </p>
+                    </div>
+
+                    <span
+                      className={`px-4 py-1 rounded-full text-white text-sm font-semibold
+                      ${
+                        complaint.status === "pending"
+                          ? "bg-yellow-500"
+                          : complaint.status === "in_progress"
+                            ? "bg-blue-500"
+                            : "bg-green-500"
+                      }`}
+                    >
+                      {complaint.status}
+                    </span>
                   </div>
 
-                  <span
-                    className={`px-4 py-1 rounded-full text-white text-sm font-semibold
-                    ${
-                      complaint.status === "pending"
-                        ? "bg-yellow-500"
-                        : complaint.status === "in_progress"
-                          ? "bg-blue-500"
-                          : "bg-green-500"
-                    }`}
-                  >
-                    {complaint.status}
-                  </span>
+                  <div className="flex gap-3 mt-5 flex-wrap">
+                    <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
+                      {complaint.category}
+                    </span>
+
+                    <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">
+                      {complaint.level}
+                    </span>
+                  </div>
+
+                  <p className="text-gray-400 text-sm mt-5">
+                    Created: {new Date(complaint.createdAt).toLocaleString()}
+                  </p>
+
+                  {/* Actions */}
+                  <div className="mt-5 flex gap-4">
+                    <select
+                      className="
+                        border
+                        p-2
+                        rounded-xl
+                        focus:outline-none
+                        focus:ring-2
+                        focus:ring-blue-400
+                      "
+                      value={complaint.status}
+                      onChange={(e) =>
+                        handleStatusChange(complaint._id, e.target.value)
+                      }
+                    >
+                      <option value="pending">Pending</option>
+
+                      <option value="in_progress">In Progress</option>
+
+                      <option value="resolved">Resolved</option>
+                    </select>
+
+                    <button
+                      onClick={() => handleAssign(complaint._id)}
+                      className="
+                        bg-blue-500
+                        hover:bg-blue-600
+                        text-white
+                        px-4
+                        py-2
+                        rounded-xl
+                        transition
+                      "
+                    >
+                      Assign
+                    </button>
+                  </div>
                 </div>
-
-                <div className="flex gap-3 mt-5 flex-wrap">
-                  <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">
-                    {complaint.category}
-                  </span>
-
-                  <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">
-                    {complaint.level}
-                  </span>
-                </div>
-
-                <p className="text-gray-400 text-sm mt-5">
-                  Created: {new Date(complaint.createdAt).toLocaleString()}
-                </p>
-
-                {/* Actions */}
-                <div className="mt-5 flex gap-4">
-                  <select
-                    className="
-                      border
-                      p-2
-                      rounded-xl
-                      focus:outline-none
-                      focus:ring-2
-                      focus:ring-blue-400
-                    "
-                    value={complaint.status}
-                    onChange={(e) =>
-                      handleStatusChange(complaint._id, e.target.value)
-                    }
-                  >
-                    <option value="pending">Pending</option>
-
-                    <option value="in_progress">In Progress</option>
-
-                    <option value="resolved">Resolved</option>
-                  </select>
-
-                  <button
-                    onClick={() => handleAssign(complaint._id)}
-                    className="
-                      bg-blue-500
-                      hover:bg-blue-600
-                      text-white
-                      px-4
-                      py-2
-                      rounded-xl
-                      transition
-                    "
-                  >
-                    Assign
-                  </button>
-                </div>
-              </div>
+                <ContactSection />
+              </>
             ))}
           </div>
         </div>
