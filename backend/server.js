@@ -10,7 +10,15 @@ const app = express();
 
 connectDB();
 
-app.use(cors());
+const cors = require("cors");
+
+app.use(
+  cors({
+    origin:
+      "https://grievance-management-system-plpmyk0t8-anushree-saxenas-projects.vercel.app",
+    credentials: true,
+  }),
+);
 app.use(express.json());
 
 const authRoutes = require("./routes/authRoutes");
