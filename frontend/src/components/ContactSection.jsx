@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function ContactSection() {
   return (
@@ -69,7 +69,7 @@ export default function ContactSection() {
               <div>
                 <h3 className="text-2xl text-white font-semibold">Address</h3>
 
-                <p className="text-zinc-400 mt-2">Your address here</p>
+                <p className="text-zinc-400 mt-2">Some place you would know</p>
               </div>
             </div>
 
@@ -79,7 +79,7 @@ export default function ContactSection() {
               <div>
                 <h3 className="text-2xl text-white font-semibold">E mail</h3>
 
-                <p className="text-zinc-400 mt-2">example@email.com</p>
+                <p className="text-zinc-400 mt-2">anushree@gmail.com</p>
               </div>
             </div>
 
@@ -98,11 +98,9 @@ export default function ContactSection() {
                 Follow Us
               </h3>
 
-              <div className="flex gap-4">
-                <div className="bg-zinc-800 hover:bg-orange-500 transition-all p-3 rounded-full cursor-pointer">
-                  <Instagram className="text-white" />
-                </div>
-              </div>
+              <h3 className="text-zinc-400">Made By Anushree</h3>
+
+              <div className="flex gap-4">{/* social icons can go here */}</div>
             </div>
           </div>
         </div>
