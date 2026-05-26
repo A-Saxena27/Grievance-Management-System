@@ -1,11 +1,4 @@
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Instagram,
-  Facebook,
-  Youtube,
-} from "lucide-react";
+import { Mail, Phone, MapPin, Instagram } from "lucide-react";
 
 export default function ContactSection() {
   return (
@@ -108,14 +101,6 @@ export default function ContactSection() {
               <div className="flex gap-4">
                 <div className="bg-zinc-800 hover:bg-orange-500 transition-all p-3 rounded-full cursor-pointer">
                   <Instagram className="text-white" />
-                </div>
-
-                <div className="bg-zinc-800 hover:bg-orange-500 transition-all p-3 rounded-full cursor-pointer">
-                  <Facebook className="text-white" />
-                </div>
-
-                <div className="bg-zinc-800 hover:bg-orange-500 transition-all p-3 rounded-full cursor-pointer">
-                  <Youtube className="text-white" />
                 </div>
               </div>
             </div>
